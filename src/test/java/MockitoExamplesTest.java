@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+
 import org.junit.jupiter.api.Test;
 
 /**
- * Mockito の3種類のテストダブルの使い方の例。ドメインコードに依存させず
- * (かつリファクタリングで壊れないようにするため)、協働オブジェクトには
+ * Mockito の3種類のテストダブルの使い方の例。協働オブジェクトには
  * JDK 標準の型だけを使う。
  *
  * <ul>
