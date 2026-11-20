@@ -2,8 +2,12 @@ package bad.trainroute.domain;
 
 public class TrainSystem {
 
-    public static String getRouteInfo(String s1, String s2) {
-        return RouteSearcher.searchRoute(s1, s2);
+    public static String getRouteInfo(String from, String to) {
+        String result = RouteSearcher.searchRoute(from, to);
+        if (result.equals("駅が見つかりません")) {
+            return RouteSearcher.searchRouteYamanotesen(from, to);
+        }
+        return result;
     }
 
     public static String findAllRoutes(String from, String to) {

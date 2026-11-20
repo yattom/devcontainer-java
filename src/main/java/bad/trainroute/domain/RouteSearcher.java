@@ -32,6 +32,36 @@ public class RouteSearcher {
 
         return result;
     }
+    public static String searchRouteYamanotesen(String from, String to) {
+        String lineName = "山手線";
+
+        String stStr = DataStore.getStationList(lineName);
+        String[] stations = stStr.split(",");
+
+        int a = -1;
+        int b = -1;
+
+        for (int i = 0; i < stations.length; i++) {
+            if (stations[i].equals(from)) {
+                a = i;
+            }
+            if (stations[i].equals(to)) {
+                b = i;
+            }
+        }
+
+        if (a == -1 || b == -1) {
+            return "駅が見つかりません";
+        }
+
+        if (a >= b) {
+            return "不正なルートです";
+        }
+
+        String result = from + "で" + lineName + "に乗車して、" + to + "で下車します。";
+
+        return result;
+    }
 
     public static String findRoute(String departure, String arrival) {
         String line = "中央線";
